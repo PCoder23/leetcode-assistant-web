@@ -505,7 +505,7 @@ export default async function SessionsPage() {
                     <CompactSessionCard session={session} />
                   </div>
                 </DialogTrigger>
-                <DialogContent className="max-w-5xl max-h-[90vh] bg-white">
+                <DialogContent className="max-w-5xl max-h-[90vh] bg-card/95 backdrop-blur-sm">
                   <DialogHeader>
                     <DialogTitle className="text-2xl font-semibold text-balance">
                       {session.problem_title}
