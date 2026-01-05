@@ -1,7 +1,6 @@
 "use client";
 import Script from "next/script";
 import { useEffect } from "react";
-import jwt from "jsonwebtoken";
 
 interface GenerateZohoJwtProps {
   email: string;
