@@ -9,7 +9,7 @@ interface GenerateZohoJwtProps {
 
 const generateZohoJwt = async () => {
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibm90X2FmdGVyIjoxNzY3OTExODEyOTM1LCJub3RfYmVmb3JlIjoxNzY3NjExODEyOTM1LCJlbWFpbCI6InByYW5hdmtqaGExMTFAZ21haWwuY29tIiwiaWF0IjoxNzY3NjExODEyfQ.J4Q2yE2R1U4WEU2jSq_vU8VJxxbfo9WVscEEiYHeUgQ";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibm90X2FmdGVyIjoxNzY3NjEyODg2NjU2LCJub3RfYmVmb3JlIjoxNzY3NjEyNTg2NjU2LCJlbWFpbCI6InByYW5hdmtqaGExMTFAZ21haWwuY29tIiwiaWF0IjoxNzY3NjEyNTg2fQ.wYQaPEdmUES4r0NBSF1_x2XgAWIZY82EkfV_OQNluPo";
 
   return token;
 };
