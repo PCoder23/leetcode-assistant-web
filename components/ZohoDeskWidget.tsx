@@ -9,7 +9,7 @@ interface GenerateZohoJwtProps {
 
 const generateZohoJwt = async () => {
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibm90X2FmdGVyIjoxNzY3OTEwODU4ODc4LCJub3RfYmVmb3JlIjoxNzY3NjEwODU4ODc4LCJlbWFpbCI6InByYW5hdmtqaGExMTFAZ21haWwuY29tIiwiaWF0IjoxNzY3NjEwODU4fQ.EkMX9KLH77owpUIXqvaw9mV-zKtkzp4adveUPWSVc2w";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibm90X2FmdGVyIjoxNzY3OTExODEyOTM1LCJub3RfYmVmb3JlIjoxNzY3NjExODEyOTM1LCJlbWFpbCI6InByYW5hdmtqaGExMTFAZ21haWwuY29tIiwiaWF0IjoxNzY3NjExODEyfQ.J4Q2yE2R1U4WEU2jSq_vU8VJxxbfo9WVscEEiYHeUgQ";
 
   return token;
 };
@@ -71,7 +71,6 @@ const ZohoDeskWidget = () => {
   return (
     <Script
       id="zoho-desk-bootstrap"
-      type="text/javascript"
       dangerouslySetInnerHTML={{
         __html: `
           var d=document;s=d.createElement("script"),s.type="text/javascript",s.id="zohodeskasapscript",s.defer=!0,s.nonce="{place_your_nonce_value_here}",s.src="https://desk.zoho.in/portal/api/web/asapApp/191794000001642019?orgId=60040623507",t=d.getElementsByTagName("script")[0],t.parentNode.insertBefore(s,t),window.ZohoDeskAsapReady=function(s){var e=window.ZohoDeskAsap__asyncalls=window.ZohoDeskAsap__asyncalls||[];window.ZohoDeskAsapReadyStatus?(s&&e.push(s),e.forEach(s=>s&&s()),window.ZohoDeskAsap__asyncalls=null):s&&e.push(s)};
