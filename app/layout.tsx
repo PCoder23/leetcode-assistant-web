@@ -24,12 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ZohoDeskWidget />
       <body
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* {children} */}
-        <div></div>
+        {children}
+        {/* <div></div> */}
       </body>
     </html>
   );
