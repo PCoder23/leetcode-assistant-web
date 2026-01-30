@@ -69,6 +69,7 @@ const ZohoDeskWidget = ({ zohoAsapToken }: { zohoAsapToken: string }) => {
     };
 
     (window as any).ZohoDeskAsapReady(handler);
+    handler();
   }, [zohoAsapToken]);
   // TODO: Enable Zoho Desk widget for production after review
   return (
