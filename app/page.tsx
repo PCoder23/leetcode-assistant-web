@@ -524,22 +524,35 @@
 
 "use client";
 
-import { useEffect } from "react";
+import ZohoDeskWidget from "@/components/ZohoDeskWidget";
+import { useEffect, useState } from "react";
 
 export default function Page() {
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    const params = url.searchParams.toString();
+  const [zohoAsapToken, setZohoAsapToken] = useState<string>("");
+  // useEffect(() => {
+  //   const url = new URL(window.location.href);
+  //   const params = url.searchParams.toString();
 
-    console.log("Received query params:", params);
+  //   console.log("Received query params:", params);
 
-    const redirectUrl =
-      "warden:///(auth)/email-login" + (params ? `?${params}` : "");
+  //   const redirectUrl =
+  //     "warden:///(auth)/email-login" + (params ? `?${params}` : "");
 
-    console.log("Redirecting to:", redirectUrl);
+  //   console.log("Redirecting to:", redirectUrl);
 
-    window.location.replace(redirectUrl);
-  }, []);
+  //   window.location.replace(redirectUrl);
+  // }, []);
 
-  return <div></div>;
+  return (
+    <div>
+      <ZohoDeskWidget zohoAsapToken={zohoAsapToken} />
+      <input
+        type="text"
+        placeholder="Enter Zoho ASAP Token"
+        value={zohoAsapToken || ""}
+        onChange={(e) => setZohoAsapToken(e.target.value)}
+        className="border border-gray-300 rounded-md p-2 w-full max-w-md"
+      />
+    </div>
+  );
 }
