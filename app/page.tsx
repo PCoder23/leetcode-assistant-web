@@ -524,35 +524,8 @@
 
 "use client";
 
-import ZohoDeskWidget from "@/components/ZohoDeskWidget";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Page() {
-  const [zohoAsapToken, setZohoAsapToken] = useState<string>("");
-  // useEffect(() => {
-  //   const url = new URL(window.location.href);
-  //   const params = url.searchParams.toString();
-
-  //   console.log("Received query params:", params);
-
-  //   const redirectUrl =
-  //     "warden:///(auth)/email-login" + (params ? `?${params}` : "");
-
-  //   console.log("Redirecting to:", redirectUrl);
-
-  //   window.location.replace(redirectUrl);
-  // }, []);
-
-  return (
-    <div>
-      <ZohoDeskWidget zohoAsapToken={zohoAsapToken} />
-      <input
-        type="text"
-        placeholder="Enter Zoho ASAP Token"
-        value={zohoAsapToken || ""}
-        onChange={(e) => setZohoAsapToken(e.target.value)}
-        className="border border-gray-300 rounded-md p-2 w-full max-w-md"
-      />
-    </div>
-  );
+  return <div></div>;
 }

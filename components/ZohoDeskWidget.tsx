@@ -7,14 +7,14 @@ interface GenerateZohoJwtProps {
   secretKey: string;
 }
 
-// const generateZohoJwt = async () => {
-//   const token =
-//     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibm90X2FmdGVyIjoxNzY3NjE2MTM1ODUxLCJub3RfYmVmb3JlIjoxNzY3NjE1ODM1ODUxLCJlbWFpbCI6InByYW5hdi5qQGdtYWlsLmNvbSIsImZpcnN0X25hbWUiOiJQcmFuYXYiLCJsYXN0X25hbWUiOiJKaGEgV2FyZGVuIiwiaWF0IjoxNzY3NjE1ODM1fQ.3NdkjAAhlqpsZAifyCBUKJSqtcE4YLPdIUJQD1ZFDcA";
+const generateZohoJwt = async () => {
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibm90X2FmdGVyIjoxNzY5NzYxNjE5NzEwLCJub3RfYmVmb3JlIjoxNzY5NzYxMzE5NzEwLCJlbWFpbCI6ImV2YW4uZCtGMDFAd2FyZGVuZXJhLmNvbSIsImZpcnN0X25hbWUiOiJFUEQiLCJsYXN0X25hbWUiOiIiLCJpYXQiOjE3Njk3NjEzMTl9.0kDjz8xbk5oXXIvD2IpmEjFvKr5zT8QgNKGu904mMfo";
 
-//   return token;
-// };
+  return token;
+};
 
-const ZohoDeskWidget = ({ zohoAsapToken }: { zohoAsapToken: string }) => {
+const ZohoDeskWidget = () => {
   const getJwtTokenCallback = (successCallback: any, failureCallback: any) => {
     // Fetch the JWT token from your server or authentication service
     // fetch('http://localhost:5000/api/v1/tests/get-zoho-token') // replace with your actual endpoint
@@ -27,18 +27,15 @@ const ZohoDeskWidget = ({ zohoAsapToken }: { zohoAsapToken: string }) => {
     //         // Handle any errors and pass the error to the failure callback
     //         failureCallback(error);
     //     });
-    // generateZohoJwt()
-    // .then((zohoAsapToken) => {
-    if (zohoAsapToken) {
-      console.log("Generated JWT Token:", zohoAsapToken);
-      successCallback(zohoAsapToken);
-      // })
-    } else {
-      // .catch((error) => {
-      console.error("Error generating JWT Token:", "error");
-      failureCallback("error");
-      // });
-    }
+    generateZohoJwt()
+      .then((token) => {
+        console.log("Generated JWT Token:", token);
+        successCallback(token);
+      })
+      .catch((error) => {
+        console.error("Error generating JWT Token:", error);
+        failureCallback(error);
+      });
   };
 
   useEffect(() => {
@@ -69,15 +66,14 @@ const ZohoDeskWidget = ({ zohoAsapToken }: { zohoAsapToken: string }) => {
     };
 
     (window as any).ZohoDeskAsapReady(handler);
-    handler();
-  }, [zohoAsapToken]);
+  }, []);
   // TODO: Enable Zoho Desk widget for production after review
   return (
     <Script
       id="zoho-desk-bootstrap"
       dangerouslySetInnerHTML={{
         __html: `
-          var d=document;s=d.createElement("script"),s.type="text/javascript",s.id="zohodeskasapscript",s.defer=!0,s.nonce="{place_your_nonce_value_here}",s.src="https://desk.zoho.in/portal/api/web/asapApp/191794000001973481?orgId=60040623507",t=d.getElementsByTagName("script")[0],t.parentNode.insertBefore(s,t),window.ZohoDeskAsapReady=function(s){var e=window.ZohoDeskAsap__asyncalls=window.ZohoDeskAsap__asyncalls||[];window.ZohoDeskAsapReadyStatus?(s&&e.push(s),e.forEach(s=>s&&s()),window.ZohoDeskAsap__asyncalls=null):s&&e.push(s)};
+          var d=document;s=d.createElement("script"),s.type="text/javascript",s.id="zohodeskasapscript",s.defer=!0,s.nonce="{place_your_nonce_value_here}",s.src="https://desk.zoho.in/portal/api/web/asapApp/191794000001642019?orgId=60040623507",t=d.getElementsByTagName("script")[0],t.parentNode.insertBefore(s,t),window.ZohoDeskAsapReady=function(s){var e=window.ZohoDeskAsap__asyncalls=window.ZohoDeskAsap__asyncalls||[];window.ZohoDeskAsapReadyStatus?(s&&e.push(s),e.forEach(s=>s&&s()),window.ZohoDeskAsap__asyncalls=null):s&&e.push(s)};
         `,
       }}
       strategy="afterInteractive"
